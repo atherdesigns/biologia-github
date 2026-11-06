@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Επανάληψη Βιολογίας Β΄ Γυμνασίου σαν ποδοσφαιρική σεζόν: θεωρία, κάρτες, quiz και παιχνίδια.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Βιολογία Β΄ Γυμνασίου</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Commissioner:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: single-column app over a fixed floodlit-pitch backdrop. Glass is the navigation layer only (top bar, tabs, unit cards, answer buttons); reading text stays on solid surfaces. */
+:root{
+  --bg:#F2F6F3; --surface:#FFFFFF; --surface-2:#E8EFEA; --ink:#12261F; --muted:#56695F; --line:#D3DFD8;
+  --accent:#1E8558; --accent-ink:#FFFFFF; --good:#1E8558; --good-bg:#DDF2E6; --bad:#C2363F; --bad-bg:#FBE3E4;
+  --c1:#2F9A62; --c2:#C98F0E; --c3:#D9622F; --c4:#CC3A4B; --c5:#3471CF; --c6:#7E55C8;
+  --cyto:#EAF3E4; --wall:#7FB069; --nuc:#C9B6E8; --nucl:#8A6CC0; --chl:#3F9A4A; --mito:#E99B4F; --vac:#CFE6F5; --cell-line:#2C4A3E;
+  --pitch:#1F7A43; --on-c:#FFFFFF;
+  --glass:color-mix(in srgb,var(--surface) 56%,transparent); --glass-strong:color-mix(in srgb,var(--surface) 74%,transparent);
+  --glass-blur:blur(22px) saturate(175%); --glass-edge:rgba(255,255,255,.75); --glass-low:rgba(18,38,31,.08); --glass-shadow:rgba(18,50,38,.28); --sheen:rgba(255,255,255,.42);
+  --orb-1:rgba(47,170,100,.46); --orb-2:rgba(52,113,207,.34); --orb-3:rgba(233,155,79,.34); --orb-4:rgba(204,58,75,.22); --line-pitch:rgba(30,133,88,.16);
+  --display:"Comfortaa","Trebuchet MS",system-ui,sans-serif;
+  --body:"Commissioner","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1613; --surface:#15211D; --surface-2:#1C2B26; --ink:#E4EEE8; --muted:#9BB0A6; --line:#293A34;
+  --accent:#4CC38A; --accent-ink:#0B1A14; --good:#5CD196; --good-bg:#173527; --bad:#F07A80; --bad-bg:#3A1C20;
+  --c1:#56C487; --c2:#E5B23C; --c3:#F08A57; --c4:#EE6778; --c5:#6A9CEB; --c6:#A985E6;
+  --cyto:#1F3329; --wall:#6E9E5A; --nuc:#4A3D66; --nucl:#9C82D6; --chl:#5DBA68; --mito:#D98A3F; --vac:#1F3A4D; --cell-line:#A9C7B9; --pitch:#1A5C36; --on-c:#0B1A14; --glass-edge:rgba(255,255,255,.2); --glass-low:rgba(0,0,0,.3); --glass-shadow:rgba(0,0,0,.6); --sheen:rgba(255,255,255,.09); --orb-1:rgba(47,170,100,.34); --orb-2:rgba(52,113,207,.3); --orb-3:rgba(233,155,79,.17); --orb-4:rgba(204,58,75,.2); --line-pitch:rgba(120,220,170,.1);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1613; --surface:#15211D; --surface-2:#1C2B26; --ink:#E4EEE8; --muted:#9BB0A6; --line:#293A34;
+  --accent:#4CC38A; --accent-ink:#0B1A14; --good:#5CD196; --good-bg:#173527; --bad:#F07A80; --bad-bg:#3A1C20;
+  --c1:#56C487; --c2:#E5B23C; --c3:#F08A57; --c4:#EE6778; --c5:#6A9CEB; --c6:#A985E6;
+  --cyto:#1F3329; --wall:#6E9E5A; --nuc:#4A3D66; --nucl:#9C82D6; --chl:#5DBA68; --mito:#D98A3F; --vac:#1F3A4D; --cell-line:#A9C7B9; --pitch:#1A5C36; --on-c:#0B1A14; --glass-edge:rgba(255,255,255,.2); --glass-low:rgba(0,0,0,.3); --glass-shadow:rgba(0,0,0,.6); --sheen:rgba(255,255,255,.09); --orb-1:rgba(47,170,100,.34); --orb-2:rgba(52,113,207,.3); --orb-3:rgba(233,155,79,.17); --orb-4:rgba(204,58,75,.2); --line-pitch:rgba(120,220,170,.1);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+.app{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 48px}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:8px 18px;flex-wrap:wrap}
+.brand{background:none;border:0;padding:0;display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.15rem}
+.brand svg{width:34px;height:34px;flex:none}
+.meter{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px;position:relative}
+.rank{background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:3px 10px;font-weight:600;font-size:.85rem}
+.xp{font-variant-numeric:tabular-nums;font-weight:600;font-size:.9rem}
+.float{position:absolute;right:8px;top:-6px;font-weight:700;color:var(--good);animation:up 1s ease-out forwards;pointer-events:none}
+@keyframes up{to{transform:translateY(-26px);opacity:0}}
+
+/* home */
+.hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;margin-bottom:22px}
+.hero h1{font-size:clamp(1.7rem,5vw,2.4rem)}
+.hero p{color:var(--muted);margin:.5rem 0 0;max-width:46ch}
+.progress-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;min-width:220px}
+.progress-card small{color:var(--muted);font-size:.8rem;letter-spacing:.04em;text-transform:uppercase}
+.progress-card b{display:block;font-family:var(--display);font-size:1.2rem;margin:2px 0 8px}
+.bar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .4s}
+.progress-card .next{font-size:.8rem;color:var(--muted);margin-top:6px}
+
+.rapid-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--ink);color:var(--bg);border-radius:var(--r);padding:16px 18px;margin-bottom:26px}
+.rapid-cta h2{font-size:1.15rem}
+.rapid-cta p{margin:2px 0 0;opacity:.8;font-size:.92rem}
+.btn{border:0;border-radius:10px;padding:11px 18px;font-weight:600;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.rapid-cta .btn{background:var(--bg);color:var(--ink)}
+
+.slides{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.slide{--c:var(--accent);text-align:left;display:grid;grid-template-columns:62px 1fr;min-height:128px;border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:0;overflow:hidden;transition:transform .15s, box-shadow .15s}
+.slide:hover{transform:translateY(-3px);box-shadow:0 8px 22px -12px color-mix(in srgb,var(--c) 70%,transparent)}
+.slide .label{background:var(--c);color:var(--on-c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:var(--display);
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 7px)}
+.slide .label span{font-size:.65rem;letter-spacing:.12em;font-weight:700}
+.slide .label b{font-size:1.25rem;line-height:1}
+.slide .body{padding:12px 14px;display:flex;flex-direction:column;gap:4px;position:relative;min-width:0}
+.slide .body::after{content:"";position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;border:2px dashed color-mix(in srgb,var(--c) 45%,transparent)}
+.slide h3{font-size:1.02rem;padding-right:40px}
+.slide p{margin:0;color:var(--muted);font-size:.86rem}
+.slide .meta{margin-top:auto;display:flex;gap:10px;align-items:center;font-size:.82rem;color:var(--muted)}
+.stars{color:var(--c2);letter-spacing:2px;font-size:.95rem}
+.stars .off{color:var(--line)}
+
+/* chapter */
+.back{background:none;border:0;padding:6px 0;color:var(--muted);font-weight:500;margin-bottom:6px}
+.ch-head{--c:var(--accent);border-left:6px solid var(--c);padding:4px 0 4px 14px;margin-bottom:16px}
+.ch-head small{color:var(--c);font-weight:700;letter-spacing:.1em;font-size:.75rem}
+.ch-head h1{font-size:clamp(1.4rem,4.5vw,2rem)}
+.tabs{display:flex;gap:6px;background:var(--surface-2);padding:5px;border-radius:12px;margin-bottom:18px;overflow-x:auto}
+.tabs button{flex:1;border:0;background:transparent;border-radius:8px;padding:9px 12px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+
+.points{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.points li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px 12px 40px;position:relative}
+.points li::before{content:"";position:absolute;left:15px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--c,var(--accent))}
+.points b{color:var(--ink)}
+.fact{margin-top:16px;background:color-mix(in srgb,var(--c) 12%,var(--surface));border:1px dashed var(--c);border-radius:var(--r);padding:14px 16px}
+.fact small{font-weight:700;letter-spacing:.08em;font-size:.72rem;color:var(--c);text-transform:uppercase}
+.fact p{margin:4px 0 0}
+.section-title{font-size:1.05rem;margin:22px 0 10px}
+
+/* cell explorer */
+.cell{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:6px}
+.cell svg{width:100%;height:auto;display:block}
+.cell [data-p]{cursor:pointer;transition:filter .15s}
+.cell [data-p].on{filter:drop-shadow(0 0 6px var(--accent))}
+.cell [data-p].on:not(.line){stroke:var(--ink);stroke-width:2.5}
+.cell .tog{display:flex;gap:6px;margin-bottom:10px}
+.cell .tog button{border:1.5px solid var(--line);background:transparent;border-radius:99px;padding:5px 12px;font-size:.85rem;font-weight:600}
+.cell .tog button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chips button{border:1px solid var(--line);background:var(--surface-2);border-radius:99px;padding:4px 10px;font-size:.82rem}
+.chips button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.info{font-size:.92rem}
+.info h3{font-size:1rem;margin-bottom:4px}
+.info p{margin:0;color:var(--muted)}
+.mag{font-size:.72rem;color:var(--muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+
+/* flashcards */
+.fc-wrap{perspective:1000px;max-width:520px;margin:0 auto}
+.fc{width:100%;height:230px;border:0;background:none;padding:0;position:relative;transform-style:preserve-3d;transition:transform .5s}
+.fc.flip{transform:rotateY(180deg)}
+.fc .face{position:absolute;inset:0;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line)}
+.fc .front{background:var(--surface)}
+.fc .front b{font-family:var(--display);font-size:1.5rem;text-align:center}
+.fc .back{background:var(--c);color:var(--on-c);transform:rotateY(180deg);font-size:1.02rem;text-align:center}
+.fc small{opacity:.7;font-size:.78rem}
+.fc-nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px;max-width:520px;margin-inline:auto;gap:8px}
+.fc-nav span{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.9rem}
+
+/* quiz */
+.qhead{display:flex;justify-content:space-between;font-size:.88rem;color:var(--muted);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.combo{color:var(--c3);font-weight:700}
+.q{font-size:1.2rem;margin:18px 0 14px}
+.opts{display:grid;gap:9px}
+.opt{text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-weight:500;transition:border-color .15s, background .15s}
+.opt:hover:not(:disabled){border-color:var(--c,var(--accent))}
+.opt:disabled{cursor:default}
+.opt.ok{background:var(--good-bg);border-color:var(--good);color:var(--ink)}
+.opt.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--ink)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--surface-2);display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fb p{margin:0;flex:1;min-width:200px}
+.fb b.good{color:var(--good)} .fb b.bad{color:var(--bad)}
+.result{text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px 18px}
+.result .big{font-family:var(--display);font-size:2.6rem;font-weight:700;font-variant-numeric:tabular-nums}
+.result .stars{font-size:1.8rem}
+.result p{color:var(--muted)}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+
+/* order game */
+.chain{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px;counter-reset:s}
+.chain li{counter-increment:s;background:var(--good-bg);border:1px solid var(--good);border-radius:10px;padding:8px 12px 8px 44px;position:relative;animation:pop .25s}
+.chain li::before{content:counter(s);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background:var(--good);color:var(--surface);font-size:.8rem;font-weight:700;display:grid;place-items:center}
+.chain li.ghost{background:transparent;border:1.5px dashed var(--line);color:var(--muted);animation:none}
+.chain li.ghost::before{background:var(--line);color:var(--muted)}
+.pool{display:flex;flex-wrap:wrap;gap:8px}
+.pool button{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:9px 13px;font-weight:500}
+.pool button:hover{border-color:var(--c,var(--accent))}
+.shake{animation:shake .35s;border-color:var(--bad)!important;background:var(--bad-bg)!important}
+@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+@keyframes pop{from{transform:scale(.92);opacity:.4}}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+
+/* sort game */
+.sort-item{background:var(--surface);border:2px solid var(--c);border-radius:16px;padding:20px;text-align:center;font-family:var(--display);font-weight:700;font-size:1.25rem;margin-bottom:14px;animation:pop .25s}
+.sort-item small{display:block;font-family:var(--body);font-weight:500;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.bin{display:flex;flex-direction:column;gap:6px;text-align:left;background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;min-height:84px}
+.bin:hover{border-color:var(--c)}
+.bin b{font-size:.92rem}
+.bin ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.bin li{background:var(--good-bg);color:var(--ink);border-radius:6px;padding:2px 7px;font-size:.76rem}
+/* football */
+.league{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.league div{background:var(--surface);padding:10px 14px}
+.league small{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.league b{font-family:var(--display);font-size:1.35rem;font-variant-numeric:tabular-nums}
+.league b span{font-size:.8rem;color:var(--muted);font-weight:500}
+.board{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;background:var(--pitch);color:#fff;border-radius:12px;padding:12px 16px;margin-bottom:12px;position:relative;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 40px,transparent 40px 80px)}
+.board span{font-weight:700;font-size:.85rem;letter-spacing:.04em}
+.board span:last-of-type{text-align:right}
+.board b{font-family:var(--display);font-size:1.8rem;font-variant-numeric:tabular-nums;background:rgba(0,0,0,.35);border-radius:8px;padding:2px 14px;white-space:nowrap}
+.board b.goal{animation:pop .4s}
+.board em{position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);font-style:normal;font-size:.7rem;font-weight:700;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:0 8px}
+.vs{font-size:.8rem;font-weight:600;color:var(--c)}
+.res{font-weight:700}
+.res.r3{color:var(--good)} .res.r1{color:var(--c2)} .res.r0{color:var(--bad)}
+.pitch{margin-top:16px;border-radius:var(--r);padding:14px 16px;background:var(--pitch);color:#fff;
+  background-image:linear-gradient(90deg,transparent calc(50% - 1px),rgba(255,255,255,.35) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 30px,transparent 30px 60px)}
+.pitch small{font-weight:700;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;opacity:.85}
+.pitch p{margin:4px 0 0;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+@media (max-width:520px){.league{grid-template-columns:repeat(2,minmax(0,1fr))}.board b{font-size:1.4rem;padding:2px 10px}}
+.group-title{font-size:1rem;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
+.group-title::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--c)}
+
+/* rapid */
+.timer{font-family:var(--display);font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums}
+.timer.low{color:var(--bad)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--on-c);background:var(--c);border-radius:6px;padding:2px 8px}
+
+.confetti{position:fixed;top:-10px;width:9px;height:14px;border-radius:2px;pointer-events:none;animation:fall linear forwards;z-index:20}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.confetti{display:none}}
+
+@media (max-width:620px){
+  .hero{grid-template-columns:1fr}
+  .cell{grid-template-columns:1fr}
+  .fc{height:250px}
+}
+
+/* glass layer: translucent material for navigation and controls, never nested inside other glass */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:radial-gradient(46vmax 40vmax at 8% 4%,var(--orb-1),transparent 70%),radial-gradient(42vmax 38vmax at 96% 18%,var(--orb-2),transparent 70%),
+  radial-gradient(40vmax 36vmax at 88% 92%,var(--orb-3),transparent 70%),radial-gradient(38vmax 34vmax at 6% 88%,var(--orb-4),transparent 70%)}
+.ambient::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--line-pitch) 0 72px,transparent 72px 144px);opacity:.38}
+.ambient::after{content:"";position:absolute;left:50%;top:50%;width:min(64vmin,460px);aspect-ratio:1;transform:translate(-50%,-50%);border:3px solid var(--line-pitch);border-radius:50%}
+.top,.tabs,.slide,.opt,.pool button,.bin,.back,.rapid-cta,.board{
+  border:1px solid var(--glass-edge);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+  box-shadow:inset 0 1px 0 var(--sheen),inset 0 -1px 0 var(--glass-low),0 12px 30px -18px var(--glass-shadow)}
+.top,.tabs,.slide,.opt,.pool button,.bin,.back{background:linear-gradient(140deg,var(--sheen),transparent 46%),var(--glass)}
+.top{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:5;flex-wrap:nowrap;border-radius:999px;padding:7px 10px 7px 14px;margin-bottom:20px;background:linear-gradient(140deg,var(--sheen),transparent 46%),var(--glass-strong)}
+.brand{white-space:nowrap}
+.meter{background:none;border:0;padding:0;white-space:nowrap}
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 74px);z-index:4;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-radius:999px;overflow:visible;background:linear-gradient(140deg,var(--sheen),transparent 46%),var(--glass-strong)}
+.tabs i{position:absolute;inset:5px auto 5px 5px;width:calc((100% - 12px)/4);border-radius:999px;background:var(--surface);box-shadow:0 2px 8px -3px var(--glass-shadow);transform:translateX(calc(var(--i,0)*100%));transition:transform .34s cubic-bezier(.22,1,.36,1)}
+.tabs button{position:relative;padding:8px 4px;border-radius:999px;transition:color .2s}
+.tabs button[aria-selected="true"]{background:none;box-shadow:none}
+.back{border-radius:999px;padding:6px 14px;color:var(--ink);margin-bottom:12px}
+.slide{border-radius:18px}
+.slide .label{border-right:1px solid var(--glass-edge)}
+.slide p,.slide .meta{color:var(--ink);opacity:.78}
+.opt{border-width:1px}
+.opt.ok{background:var(--good-bg);border-color:var(--good)}
+.opt.bad{background:var(--bad-bg);border-color:var(--bad)}
+.rapid-cta{color:#fff;background:linear-gradient(140deg,rgba(255,255,255,.1),transparent 46%),color-mix(in srgb,var(--pitch) 95%,transparent)}
+.rapid-cta .btn{background:#fff;color:#12261F;box-shadow:none}
+.board{background:linear-gradient(140deg,rgba(255,255,255,.1),transparent 46%),color-mix(in srgb,var(--pitch) 95%,transparent)}
+.hero p,.hint,.qhead{color:var(--ink)}
+.hero p,.hint{opacity:.82}
+.btn{border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 8px 18px -10px var(--accent);transition:transform .16s ease-out}
+.btn.ghost{background:var(--glass);border-color:var(--line);box-shadow:inset 0 1px 0 var(--sheen)}
+.slide,.opt,.pool button,.bin,.back{transition:transform .16s ease-out,border-color .15s,background .15s}
+.btn:active,.opt:active:not(:disabled),.pool button:active,.bin:active,.slide:active,.back:active{transform:scale(.97)}
+@media (hover:none){.slide:hover{transform:none;box-shadow:inset 0 1px 0 var(--sheen),inset 0 -1px 0 var(--glass-low),0 12px 30px -18px var(--glass-shadow)}}
+@media (max-width:430px){.brand{font-size:1rem;gap:7px}.brand svg{width:28px;height:28px}.rank{font-size:.76rem;padding:3px 8px}.xp{font-size:.8rem}.meter{gap:6px}.top{padding-inline:10px 8px}.tabs button{font-size:.88rem}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){:root:root:root{--glass:var(--surface);--glass-strong:var(--surface)}}
+@media (prefers-reduced-transparency:reduce){:root:root:root{--glass:var(--surface);--glass-strong:var(--surface);--glass-blur:none;--sheen:transparent}.ambient{display:none}.rapid-cta,.board{background:var(--pitch)}}
+@media (prefers-contrast:more){:root:root:root{--glass:var(--surface);--glass-strong:var(--surface);--glass-edge:var(--ink);--line:var(--ink)}}
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<div class="app">
+  <header class="top">
+    <button class="brand" id="home" aria-label="Αρχική">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="var(--cyto)" stroke="var(--accent)" stroke-width="3"/><circle cx="16" cy="17" r="6" fill="var(--nuc)"/><circle cx="16" cy="17" r="2.4" fill="var(--nucl)"/><ellipse cx="27" cy="25" rx="5" ry="2.6" fill="var(--mito)" transform="rotate(-25 27 25)"/><ellipse cx="14" cy="29" rx="4" ry="2.2" fill="var(--chl)"/></svg>
+      Βιολογία Β΄
+    </button>
+    <div class="meter" id="meter"></div>
+  </header>
+  <main id="view"></main>
+</div>
+
+<script>
+const GROUPS = [
+  {name:'Η επιστήμη της Βιολογίας', c:'var(--c6)', units:['sci']},
+  {name:'1. Οργάνωση της ζωής – Βιολογικά συστήματα', c:'var(--c1)', units:['mol','cell','levels']},
+  {name:'2. Οι οργανισμοί στο περιβάλλον τους', c:'var(--c4)', units:['eco','cycle','pollution']},
+  {name:'3. Μεταβολισμός', c:'var(--c5)', units:['energy','enz']}
+];
+const CH = [
+{ id:'sci', n:'Εισ.', title:'Η επιστήμη της Βιολογίας', sub:'Επιστημονική μέθοδος, κλάδοι, εφαρμογές', c:'var(--c6)',
+  points:[
+    'Η <b>Βιολογία</b> είναι η επιστήμη που μελετά τη ζωή (βίος + λόγος): τους οργανισμούς, τη δομή, τη λειτουργία και τις σχέσεις τους.',
+    'Η <b>επιστημονική μέθοδος</b>: παρατήρηση → ερώτημα → υπόθεση → πείραμα → ανάλυση αποτελεσμάτων → συμπέρασμα.',
+    'Σε ένα πείραμα συγκρίνουμε την <b>πειραματική ομάδα</b> με την <b>ομάδα ελέγχου</b> και αλλάζουμε μόνο <b>έναν παράγοντα</b> κάθε φορά.',
+    'Αν τα αποτελέσματα δεν στηρίζουν την υπόθεση, διατυπώνουμε νέα υπόθεση και την ελέγχουμε ξανά.',
+    'Κλάδοι: <b>βοτανική, ζωολογία, μικροβιολογία, γενετική, οικολογία, ανατομία, φυσιολογία</b>. Εφαρμογές: ιατρική (εμβόλια, αντιβιοτικά), γεωργία, προστασία του περιβάλλοντος.'
+  ],
+  fact:'Ο Φλέμινγκ ανακάλυψε την πενικιλίνη το 1928 επειδή πρόσεξε ότι μια μούχλα σκότωνε τα βακτήρια μιας «χαλασμένης» καλλιέργειας. Η καλή παρατήρηση είναι το πρώτο βήμα.',
+  cards:[
+    ['Υπόθεση','Μια πιθανή απάντηση σε ένα ερώτημα, που μπορεί να ελεγχθεί με πείραμα.'],
+    ['Ομάδα ελέγχου','Η ομάδα του πειράματος όπου δεν αλλάζουμε τίποτα, ώστε να έχουμε κάτι για σύγκριση.'],
+    ['Μεταβλητή','Ο παράγοντας που αλλάζουμε σκόπιμα σε ένα πείραμα, π.χ. η ποσότητα φωτός.'],
+    ['Θεωρία','Εξήγηση που έχει στηριχτεί σε πολλά πειράματα και παρατηρήσεις.'],
+    ['Οικολογία','Ο κλάδος που μελετά τις σχέσεις των οργανισμών μεταξύ τους και με το περιβάλλον.'],
+    ['Μικροβιολογία','Ο κλάδος που μελετά τους μικροοργανισμούς, όπως τα βακτήρια.']
+  ],
+  quiz:[
+    {q:'Ποιο είναι το πρώτο βήμα της επιστημονικής μεθόδου;',a:['Η παρατήρηση','Το συμπέρασμα','Το πείραμα','Η θεωρία'],why:'Όλα ξεκινούν όταν παρατηρούμε κάτι και αναρωτιόμαστε γιατί συμβαίνει.'},
+    {q:'Τι είναι η υπόθεση;',a:['Μια πιθανή απάντηση που ελέγχεται με πείραμα','Το τελικό συμπέρασμα','Ένα αποτέλεσμα που μετρήσαμε','Ένας νόμος της φύσης'],why:'Η υπόθεση είναι μια «καλή μαντεψιά» που πρέπει να τη δοκιμάσουμε.'},
+    {q:'Θέλεις να δεις αν το φως βοηθά ένα φυτό να μεγαλώσει. Τι πρέπει να αλλάζει ανάμεσα στις γλάστρες;',a:['Μόνο η ποσότητα φωτός','Το φως και το νερό','Όλα','Τίποτα'],why:'Αν αλλάξεις πολλά μαζί, δεν θα ξέρεις ποιο προκάλεσε τη διαφορά.'},
+    {q:'Γιατί χρειάζεται ομάδα ελέγχου;',a:['Για να συγκρίνουμε τα αποτελέσματα','Για να τελειώσει γρηγορότερα το πείραμα','Για να έχουμε περισσότερα φυτά','Δεν χρειάζεται'],why:'Χωρίς σύγκριση δεν ξέρουμε αν η αλλαγή οφείλεται στον παράγοντα που ελέγχουμε.'},
+    {q:'Ποιος κλάδος μελετά τις σχέσεις των οργανισμών με το περιβάλλον;',a:['Η οικολογία','Η ανατομία','Η γενετική','Η βοτανική'],why:'Οίκος + λόγος: η μελέτη του «σπιτιού» των οργανισμών.'},
+    {q:'Το πείραμα δεν επιβεβαίωσε την υπόθεση. Τι κάνουμε;',a:['Διατυπώνουμε νέα υπόθεση και την ελέγχουμε','Αλλάζουμε τα αποτελέσματα','Σταματάμε την έρευνα','Λέμε ότι η υπόθεση ισχύει'],why:'Και ένα «λάθος» αποτέλεσμα μάς μαθαίνει κάτι και μας οδηγεί σε καλύτερη υπόθεση.'}
+  ],
+  game:{type:'order',title:'Τα βήματα του επιστήμονα',hint:'Βάλε τα βήματα της επιστημονικής μεθόδου στη σωστή σειρά.',items:['Παρατήρηση','Διατύπωση ερωτήματος','Υπόθεση','Πείραμα','Ανάλυση αποτελεσμάτων','Συμπέρασμα']}
+},
+{ id:'mol', n:'1.1', title:'Τα μόρια της ζωής', sub:'Ανόργανες και οργανικές ενώσεις', c:'var(--c1)',
+  points:[
+    'Οι οργανισμοί αποτελούνται από χημικές ενώσεις: <b>ανόργανες</b> και <b>οργανικές</b>.',
+    '<b>Ανόργανες:</b> το <b>νερό</b> (περίπου τα 2/3 του σώματός μας), τα <b>άλατα</b> (π.χ. ασβέστιο στα οστά, σίδηρος στην αιμοσφαιρίνη), το O₂ και το CO₂.',
+    '<b>Υδατάνθρακες:</b> η κύρια πηγή ενέργειας (γλυκόζη). Το <b>άμυλο</b> αποθηκεύει ενέργεια στα φυτά, το <b>γλυκογόνο</b> στα ζώα, η <b>κυτταρίνη</b> φτιάχνει το κυτταρικό τοίχωμα.',
+    '<b>Λιπίδια:</b> αποθήκη ενέργειας, θερμομόνωση, συστατικά των μεμβρανών. <b>Πρωτεΐνες:</b> φτιάχνονται από <b>αμινοξέα</b> και είναι ένζυμα, αντισώματα, αιμοσφαιρίνη, κερατίνη.',
+    '<b>Νουκλεϊκά οξέα</b> (DNA, RNA): φτιάχνονται από <b>νουκλεοτίδια</b> και φέρουν τη γενετική πληροφορία. Τα μεγάλα μόρια (πολυμερή) φτιάχνονται από μικρές μονάδες (μονομερή), σαν χάντρες σε κολιέ.'
+  ],
+  fact:'Αν έβγαζες το DNA από ένα μόνο κύτταρό σου και το τέντωνες, θα είχε μήκος περίπου 2 μέτρα.',
+  cards:[
+    ['Μονομερές – πολυμερές','Μικρή δομική μονάδα (π.χ. γλυκόζη) και το μεγάλο μόριο που φτιάχνεται από πολλές τέτοιες (π.χ. άμυλο).'],
+    ['Γλυκόζη','Απλός υδατάνθρακας. Το βασικό «καύσιμο» των κυττάρων.'],
+    ['Άμυλο','Πολυσακχαρίτης όπου τα φυτά αποθηκεύουν ενέργεια, π.χ. στις πατάτες.'],
+    ['Γλυκογόνο','Η αποθήκη υδατανθράκων στα ζώα, κυρίως στο ήπαρ και στους μύες.'],
+    ['Κυτταρίνη','Πολυσακχαρίτης του κυτταρικού τοιχώματος των φυτών.'],
+    ['Αμινοξέα','Οι δομικές μονάδες των πρωτεϊνών.'],
+    ['Νουκλεοτίδια','Οι δομικές μονάδες των νουκλεϊκών οξέων (DNA και RNA).']
+  ],
+  quiz:[
+    {q:'Ποια από τις παρακάτω είναι ανόργανη ένωση;',a:['Το νερό','Η γλυκόζη','Μια πρωτεΐνη','Το DNA'],why:'Το νερό και τα άλατα είναι ανόργανες ενώσεις. Οι υπόλοιπες είναι οργανικές.'},
+    {q:'Οι δομικές μονάδες των πρωτεϊνών είναι…',a:['τα αμινοξέα','τα νουκλεοτίδια','η γλυκόζη','τα άλατα'],why:'Πολλά αμινοξέα ενωμένα στη σειρά σχηματίζουν μια πρωτεΐνη.'},
+    {q:'Ποια ένωση φέρει τη γενετική πληροφορία;',a:['Το DNA','Το άμυλο','Το λίπος','Το νερό'],why:'Το DNA είναι νουκλεϊκό οξύ και περιέχει τις οδηγίες για κάθε οργανισμό.'},
+    {q:'Πού βρίσκεται η κυτταρίνη;',a:['Στο κυτταρικό τοίχωμα των φυτών','Στους μύες των ζώων','Στο αίμα','Στον πυρήνα'],why:'Η κυτταρίνη δίνει αντοχή στο τοίχωμα των φυτικών κυττάρων.'},
+    {q:'Πού αποθηκεύουν τα ζώα υδατάνθρακες;',a:['Ως γλυκογόνο στο ήπαρ και στους μύες','Ως άμυλο στα οστά','Ως κυτταρίνη στο δέρμα','Ως DNA στον πυρήνα'],why:'Παγίδα: το άμυλο είναι των φυτών, το γλυκογόνο των ζώων.'},
+    {q:'Τα ένζυμα και τα αντισώματα είναι…',a:['πρωτεΐνες','υδατάνθρακες','λιπίδια','ανόργανα άλατα'],why:'Οι πρωτεΐνες έχουν πάρα πολλές δουλειές στον οργανισμό.'},
+    {q:'Γιατί ο οργανισμός χρειάζεται σίδηρο;',a:['Για να φτιάξει αιμοσφαιρίνη','Για να φτιάξει κυτταρίνη','Για να αποθηκεύσει λίπος','Για να φτιάξει άμυλο'],why:'Ο σίδηρος βρίσκεται στην αιμοσφαιρίνη, που μεταφέρει το οξυγόνο.'}
+  ],
+  game:{type:'sort',title:'Τι είδους μόριο είναι;',hint:'Βάλε κάθε ουσία στη σωστή κατηγορία.',bins:['Ανόργανη','Υδατάνθρακας','Λιπίδιο','Πρωτεΐνη','Νουκλεϊκό οξύ'],
+    items:[['Νερό',0],['Άμυλο',1],['Αιμοσφαιρίνη',3],['Λάδι ελιάς',2],['DNA',4],['Μαγειρικό αλάτι',0],['Γλυκογόνο',1],['Κερατίνη (νύχια, μαλλιά)',3],['RNA',4],['Κυτταρίνη',1],['Διοξείδιο του άνθρακα',0],['Αμυλάση (ένζυμο)',3]]}
+},
+{ id:'cell', n:'1.2', title:'Κύτταρο: η μονάδα της ζωής', sub:'Ευκαρυωτικό, προκαρυωτικό, εξειδικευμένα κύτταρα', c:'var(--c1)',
+  points:[
+    '<b>Κυτταρική θεωρία:</b> όλοι οι οργανισμοί αποτελούνται από κύτταρα, και κάθε κύτταρο προέρχεται από ένα άλλο κύτταρο.',
+    '<b>Ευκαρυωτικό κύτταρο</b> (ζώα, φυτά, μύκητες): έχει <b>πυρήνα</b> με πυρηνική μεμβράνη και οργανίδια όπως μιτοχόνδρια, ριβοσώματα, ενδοπλασματικό δίκτυο και σύμπλεγμα Golgi.',
+    'Το <b>φυτικό κύτταρο</b> έχει επιπλέον κυτταρικό τοίχωμα, χλωροπλάστες και ένα μεγάλο χυμοτόπιο.',
+    '<b>Προκαρυωτικό κύτταρο</b> (βακτήρια): είναι μικρότερο, <b>δεν έχει πυρήνα</b> ούτε μεμβρανώδη οργανίδια. Το DNA του βρίσκεται ελεύθερο στο κυτταρόπλασμα.',
+    '<b>Διαφορετικά κύτταρα για διαφορετικές λειτουργίες:</b> το νευρικό κύτταρο έχει μακριές αποφυάδες, το ερυθρό αιμοσφαίριο είναι δισκοειδές και χωρίς πυρήνα, το σπερματοζωάριο έχει μαστίγιο για να κινείται.'
+  ],
+  fact:'Το σώμα σου έχει περίπου 37 τρισεκατομμύρια κύτταρα. Αν μετρούσες ένα κάθε δευτερόλεπτο, θα χρειαζόσουν πάνω από ένα εκατομμύριο χρόνια.',
+  cards:[
+    ['Κυτταρική μεμβράνη','Το «σύνορο» του κυττάρου. Ελέγχει ποιες ουσίες μπαίνουν και βγαίνουν.'],
+    ['Πυρήνας','Περιέχει το DNA και ελέγχει τις λειτουργίες του κυττάρου.'],
+    ['Μιτοχόνδριο','Εδώ γίνεται η κυτταρική αναπνοή και παράγεται ενέργεια.'],
+    ['Χλωροπλάστης','Οργανίδιο των φυτικών κυττάρων με χλωροφύλλη, όπου γίνεται η φωτοσύνθεση.'],
+    ['Ριβοσώματα','Μικρά σωματίδια όπου φτιάχνονται οι πρωτεΐνες. Υπάρχουν και στα βακτήρια.'],
+    ['Ενδοπλασματικό δίκτυο','Δίκτυο από σωληνάκια όπου φτιάχνονται και μεταφέρονται ουσίες μέσα στο κύτταρο.'],
+    ['Σύμπλεγμα Golgi','Το «ταχυδρομείο» του κυττάρου: συσκευάζει ουσίες και τις στέλνει εκεί που χρειάζονται.'],
+    ['Κυτταρικό τοίχωμα','Σκληρό περίβλημα έξω από τη μεμβράνη στα φυτικά κύτταρα (και στα βακτήρια). Δίνει στήριξη.']
+  ],
+  quiz:[
+    {q:'Ποιο οργανίδιο υπάρχει στα φυτικά αλλά όχι στα ζωικά κύτταρα;',a:['Ο χλωροπλάστης','Το μιτοχόνδριο','Ο πυρήνας','Το ριβόσωμα'],why:'Οι χλωροπλάστες κάνουν φωτοσύνθεση, και μόνο τα φυτά (και τα φύκια) τους έχουν.'},
+    {q:'Τι ΔΕΝ έχει ένα προκαρυωτικό κύτταρο;',a:['Πυρήνα','DNA','Ριβοσώματα','Κυτταρική μεμβράνη'],why:'Τα βακτήρια έχουν DNA, αλλά όχι μέσα σε πυρήνα.'},
+    {q:'Ποιο ανθρώπινο κύτταρο δεν έχει πυρήνα όταν ωριμάσει;',a:['Το ερυθρό αιμοσφαίριο','Το νευρικό κύτταρο','Το μυϊκό κύτταρο','Το κύτταρο του δέρματος'],why:'Έτσι έχει περισσότερο χώρο για αιμοσφαιρίνη και μεταφέρει περισσότερο οξυγόνο.'},
+    {q:'Πού φτιάχνονται οι πρωτεΐνες;',a:['Στα ριβοσώματα','Στα μιτοχόνδρια','Στο χυμοτόπιο','Στο κυτταρικό τοίχωμα'],why:'Τα ριβοσώματα ενώνουν αμινοξέα και φτιάχνουν πρωτεΐνες.'},
+    {q:'Γιατί το νευρικό κύτταρο έχει μακριές αποφυάδες;',a:['Για να μεταφέρει μηνύματα σε μακρινά σημεία','Για να κολυμπά','Για να αποθηκεύει λίπος','Για να κάνει φωτοσύνθεση'],why:'Το σχήμα κάθε κυττάρου ταιριάζει με τη δουλειά που κάνει.'},
+    {q:'Ποιο οργανίδιο παράγει ενέργεια για το κύτταρο;',a:['Το μιτοχόνδριο','Το σύμπλεγμα Golgi','Το κυτταρικό τοίχωμα','Το χυμοτόπιο'],why:'Στα μιτοχόνδρια γίνεται η κυτταρική αναπνοή.'},
+    {q:'Ποιος παρατήρησε πρώτος κύτταρα, σε ένα κομμάτι φελλού (1665);',a:['Ο Robert Hooke','Ο Κάρολος Δαρβίνος','Ο Γκρέγκορ Μέντελ','Ο Λουί Παστέρ'],why:'Ο Hooke είδε μικρά «κελιά» στον φελλό και τα ονόμασε cells.'}
+  ],
+  game:{type:'sort',title:'Ευκαρυωτικό ή προκαρυωτικό;',hint:'Πού θα βρεις το καθένα; Μόνο στο ευκαρυωτικό, μόνο στο προκαρυωτικό ή και στα δύο;',bins:['Μόνο ευκαρυωτικό','Μόνο προκαρυωτικό','Και στα δύο'],
+    items:[['Πυρήνας',0],['Ριβοσώματα',2],['Μιτοχόνδρια',0],['Κυτταρική μεμβράνη',2],['DNA',2],['Σύμπλεγμα Golgi',0],['DNA ελεύθερο στο κυτταρόπλασμα, χωρίς πυρήνα',1],['Χλωροπλάστες',0],['Κυτταρόπλασμα',2],['Ενδοπλασματικό δίκτυο',0]]}
+},
+{ id:'levels', n:'1.3', title:'Τα επίπεδα οργάνωσης της ζωής', sub:'Ζωικοί ιστοί και οικοσυστήματα', c:'var(--c1)',
+  points:[
+    'Στους πολυκύτταρους οργανισμούς: <b>κύτταρα → ιστοί → όργανα → συστήματα οργάνων → οργανισμός</b>.',
+    '<b>Ιστός</b> είναι μια ομάδα όμοιων κυττάρων που κάνουν την ίδια λειτουργία. Οι ζωικοί ιστοί είναι τέσσερα είδη.',
+    '<b>Επιθηλιακός</b> (καλύπτει και επενδύει, π.χ. δέρμα), <b>συνδετικός</b> (συνδέει και στηρίζει: οστά, χόνδροι, λίπος, αίμα), <b>μυϊκός</b> (κίνηση: σκελετικός, λείος, καρδιακός), <b>νευρικός</b> (μεταφέρει μηνύματα).',
+    'Πέρα από τον οργανισμό: <b>πληθυσμός</b> (άτομα του ίδιου είδους σε μια περιοχή) → <b>βιοκοινότητα</b> (όλοι οι πληθυσμοί μαζί) → <b>οικοσύστημα</b> → <b>βιόσφαιρα</b>.',
+    '<b>Οικοσύστημα</b> = βιοκοινότητα (βιοτικοί παράγοντες) + <b>αβιοτικοί παράγοντες</b> όπως φως, θερμοκρασία, νερό, έδαφος.'
+  ],
+  fact:'Η καρδιά σου είναι φτιαγμένη από καρδιακό μυϊκό ιστό που δεν ξεκουράζεται ποτέ: χτυπά περίπου 100.000 φορές την ημέρα.',
+  cards:[
+    ['Ιστός','Ομάδα όμοιων κυττάρων που κάνουν την ίδια λειτουργία.'],
+    ['Επιθηλιακός ιστός','Καλύπτει την επιφάνεια του σώματος και επενδύει κοιλότητες, π.χ. επιδερμίδα.'],
+    ['Συνδετικός ιστός','Συνδέει και στηρίζει. Σε αυτόν ανήκουν τα οστά, οι χόνδροι, ο λιπώδης ιστός και το αίμα.'],
+    ['Μυϊκός ιστός','Συστέλλεται και προκαλεί κίνηση. Είναι σκελετικός, λείος ή καρδιακός.'],
+    ['Νευρικός ιστός','Δέχεται και μεταφέρει μηνύματα, π.χ. εγκέφαλος και νεύρα.'],
+    ['Πληθυσμός','Όλα τα άτομα του ίδιου είδους που ζουν στην ίδια περιοχή.'],
+    ['Βιοκοινότητα','Όλοι οι πληθυσμοί που ζουν μαζί σε μια περιοχή.'],
+    ['Αβιοτικοί παράγοντες','Τα μη ζωντανά στοιχεία ενός οικοσυστήματος: φως, θερμοκρασία, νερό, έδαφος.']
+  ],
+  quiz:[
+    {q:'Το αίμα ανήκει στον…',a:['συνδετικό ιστό','επιθηλιακό ιστό','μυϊκό ιστό','νευρικό ιστό'],why:'Παγίδα! Αν και είναι υγρό, το αίμα είναι συνδετικός ιστός.'},
+    {q:'Ποιος ιστός καλύπτει την επιφάνεια του σώματος;',a:['Ο επιθηλιακός','Ο συνδετικός','Ο μυϊκός','Ο νευρικός'],why:'Η επιδερμίδα είναι επιθηλιακός ιστός.'},
+    {q:'Όλα τα κουνέλια ενός δάσους αποτελούν…',a:['έναν πληθυσμό','μια βιοκοινότητα','ένα οικοσύστημα','τη βιόσφαιρα'],why:'Ίδιο είδος, ίδια περιοχή: πληθυσμός.'},
+    {q:'Τι περιλαμβάνει ένα οικοσύστημα;',a:['Τη βιοκοινότητα και τους αβιοτικούς παράγοντες','Μόνο τα φυτά','Μόνο τα ζώα','Μόνο το έδαφος και το νερό'],why:'Οικοσύστημα = ζωντανοί οργανισμοί + το μη ζωντανό περιβάλλον τους.'},
+    {q:'Ποιος από αυτούς είναι αβιοτικός παράγοντας;',a:['Η θερμοκρασία','Οι μύκητες','Τα βακτήρια','Τα πουλιά'],why:'Αβιοτικό σημαίνει μη ζωντανό.'},
+    {q:'Ποιος ιστός μεταφέρει μηνύματα στο σώμα;',a:['Ο νευρικός','Ο συνδετικός','Ο επιθηλιακός','Ο λιπώδης'],why:'Τα νευρικά κύτταρα μεταφέρουν ηλεκτρικά μηνύματα.'},
+    {q:'Ποιο είδος μυϊκού ιστού δουλεύει χωρίς να το θέλουμε, στα τοιχώματα του στομάχου;',a:['Ο λείος','Ο σκελετικός','Ο καρδιακός','Κανένας'],why:'Ο λείος μυϊκός ιστός βρίσκεται στα εσωτερικά όργανα και κινείται αυτόματα.'}
+  ],
+  game:{type:'order',title:'Από το κύτταρο στη βιόσφαιρα',hint:'Πάτα τα επίπεδα οργάνωσης από το μικρότερο στο μεγαλύτερο.',items:['Κύτταρο','Ιστός','Όργανο','Σύστημα οργάνων','Οργανισμός','Πληθυσμός','Βιοκοινότητα','Οικοσύστημα','Βιόσφαιρα']}
+},
+{ id:'eco', n:'2.1', title:'Ισορροπία και ροή ενέργειας', sub:'Ενότητες 2.1–2.2 · τροφικές αλυσίδες και πυραμίδες', c:'var(--c4)',
+  points:[
+    'Ένα οικοσύστημα βρίσκεται σε <b>δυναμική ισορροπία</b>: οι πληθυσμοί αυξομειώνονται, αλλά σε βάθος χρόνου μένουν περίπου σταθεροί.',
+    '<b>Παραγωγοί</b> (φυτά, φύκια) φτιάχνουν τροφή με φωτοσύνθεση. <b>Καταναλωτές</b>: φυτοφάγα (1ης τάξης) και σαρκοφάγα (2ης, 3ης τάξης). <b>Αποικοδομητές</b> (βακτήρια, μύκητες) διασπούν τη νεκρή ύλη.',
+    '<b>Τροφική αλυσίδα:</b> σειρά οργανισμών όπου ο καθένας τρώει τον προηγούμενο. <b>Τροφικό πλέγμα:</b> πολλές αλυσίδες συνδεδεμένες μεταξύ τους.',
+    'Η ενέργεια έρχεται από τον <b>Ήλιο</b> και <b>ρέει προς μία κατεύθυνση</b>. Σε κάθε τροφικό επίπεδο περνά στο επόμενο μόνο περίπου το <b>10%</b>, ενώ το υπόλοιπο χάνεται κυρίως ως θερμότητα.',
+    '<b>Τροφικές πυραμίδες</b> (ενέργειας, βιομάζας, αριθμού) δείχνουν αυτή τη μείωση. Γι’ αυτό οι τροφικές αλυσίδες έχουν συνήθως μόνο 4–5 κρίκους.'
+  ],
+  fact:'Με τον κανόνα του 10%, για 1 κιλό αετού χρειάζονται περίπου 10 κιλά φίδια, 100 κιλά ποντίκια και 1.000 κιλά σιτάρι.',
+  cards:[
+    ['Παραγωγός','Οργανισμός που φτιάχνει μόνος του την τροφή του με φωτοσύνθεση, π.χ. φυτό.'],
+    ['Καταναλωτής 1ης τάξης','Φυτοφάγος οργανισμός που τρώει παραγωγούς, π.χ. κουνέλι.'],
+    ['Αποικοδομητής','Βακτήρια και μύκητες που διασπούν νεκρούς οργανισμούς και επιστρέφουν ουσίες στο έδαφος.'],
+    ['Τροφικό πλέγμα','Πολλές τροφικές αλυσίδες ενός οικοσυστήματος, συνδεδεμένες μεταξύ τους.'],
+    ['Τροφικό επίπεδο','Η θέση ενός οργανισμού στην τροφική αλυσίδα (παραγωγός, καταναλωτής 1ης τάξης κ.λπ.).'],
+    ['Βιομάζα','Η συνολική μάζα των οργανισμών ενός τροφικού επιπέδου.'],
+    ['Δυναμική ισορροπία','Οι πληθυσμοί αλλάζουν συνεχώς, αλλά συνολικά μένουν περίπου σταθεροί.']
+  ],
+  quiz:[
+    {q:'Ποιος από αυτούς είναι παραγωγός;',a:['Το χορτάρι','Το μανιτάρι','Η ακρίδα','Η αλεπού'],why:'Μόνο το χορτάρι κάνει φωτοσύνθεση. Το μανιτάρι είναι αποικοδομητής.'},
+    {q:'Ποιος είναι ο ρόλος των αποικοδομητών;',a:['Διασπούν νεκρούς οργανισμούς και επιστρέφουν ουσίες στο έδαφος','Κάνουν φωτοσύνθεση','Τρώνε μόνο ζωντανά φυτά','Κυνηγούν σαρκοφάγα'],why:'Χωρίς αυτούς το δάσος θα γέμιζε νεκρά φύλλα και ζώα.'},
+    {q:'Στην αλυσίδα χορτάρι → ακρίδα → βάτραχος → φίδι, ο βάτραχος είναι…',a:['καταναλωτής 2ης τάξης','παραγωγός','καταναλωτής 1ης τάξης','αποικοδομητής'],why:'Τρώει την ακρίδα, που είναι καταναλωτής 1ης τάξης.'},
+    {q:'Πόση ενέργεια περνά περίπου στο επόμενο τροφικό επίπεδο;',a:['10%','50%','90%','100%'],why:'Το μεγαλύτερο μέρος χάνεται ως θερμότητα και σε κινήσεις.'},
+    {q:'Γιατί οι τροφικές αλυσίδες έχουν λίγους κρίκους;',a:['Γιατί χάνεται ενέργεια σε κάθε επίπεδο','Γιατί δεν υπάρχουν πολλά ζώα','Γιατί τα φυτά δεν φτάνουν','Γιατί οι αποικοδομητές τρώνε τα πάντα'],why:'Μετά από 4–5 επίπεδα δεν μένει αρκετή ενέργεια για άλλον κρίκο.'},
+    {q:'Ποια είναι η αρχική πηγή ενέργειας στα περισσότερα οικοσυστήματα;',a:['Ο Ήλιος','Το έδαφος','Το νερό','Οι αποικοδομητές'],why:'Οι παραγωγοί δεσμεύουν την ηλιακή ενέργεια με τη φωτοσύνθεση.'},
+    {q:'Από ένα λιβάδι εξαφανίζονται οι αλεπούδες. Τι θα γίνει αρχικά με τα κουνέλια;',a:['Θα αυξηθούν','Θα μειωθούν','Δεν θα αλλάξουν','Θα εξαφανιστούν'],why:'Χωρίς θηρευτή αυξάνονται, και έτσι διαταράσσεται η ισορροπία.'}
+  ],
+  game:{type:'order',title:'Φτιάξε την τροφική αλυσίδα',hint:'Ξεκίνα από την πηγή ενέργειας και φτάσε στον κορυφαίο θηρευτή.',items:['Ήλιος','Χορτάρι','Ακρίδα','Βάτραχος','Φίδι','Αετός']}
+},
+{ id:'cycle', n:'2.3', title:'Η ανακύκλωση της ύλης', sub:'Κύκλος του άνθρακα, του αζώτου και του νερού', c:'var(--c4)',
+  points:[
+    'Η <b>ενέργεια ρέει</b> και χάνεται, ενώ η <b>ύλη ανακυκλώνεται</b>: τα ίδια άτομα περνούν ξανά και ξανά από το περιβάλλον στους οργανισμούς και πίσω.',
+    '<b>Κύκλος του άνθρακα:</b> η φωτοσύνθεση δεσμεύει CO₂ από τον αέρα. Η αναπνοή, η αποικοδόμηση και οι καύσεις το επιστρέφουν.',
+    'Τα <b>ορυκτά καύσιμα</b> (πετρέλαιο, γαιάνθρακες) είναι άνθρακας από οργανισμούς που έζησαν πριν από εκατομμύρια χρόνια. Η καύση τους αυξάνει το CO₂ της ατμόσφαιρας.',
+    '<b>Κύκλος του αζώτου:</b> τα <b>αζωτοδεσμευτικά βακτήρια</b> (π.χ. στις ρίζες των ψυχανθών) μετατρέπουν το άζωτο του αέρα σε ενώσεις που χρησιμοποιούν τα φυτά. Οι αποικοδομητές επιστρέφουν το άζωτο στο έδαφος.',
+    '<b>Κύκλος του νερού:</b> εξάτμιση, διαπνοή των φυτών, συμπύκνωση σε σύννεφα, βροχή.'
+  ],
+  fact:'Ο αέρας είναι περίπου 78% άζωτο, αλλά ούτε εμείς ούτε τα φυτά μπορούμε να το χρησιμοποιήσουμε απευθείας. Εξαρτιόμαστε από μικροσκοπικά βακτήρια.',
+  cards:[
+    ['Ανακύκλωση της ύλης','Η συνεχής κυκλοφορία των στοιχείων (C, N, νερό) ανάμεσα στο περιβάλλον και τους οργανισμούς.'],
+    ['Αζωτοδεσμευτικά βακτήρια','Βακτήρια που μετατρέπουν το άζωτο του αέρα σε ενώσεις χρήσιμες για τα φυτά.'],
+    ['Ορυκτά καύσιμα','Πετρέλαιο, γαιάνθρακες και φυσικό αέριο, που σχηματίστηκαν από οργανισμούς πριν από εκατομμύρια χρόνια.'],
+    ['Διαπνοή','Η αποβολή νερού με τη μορφή υδρατμών από τα φύλλα των φυτών.'],
+    ['Αποικοδόμηση','Η διάσπαση νεκρής οργανικής ύλης από βακτήρια και μύκητες.']
+  ],
+  quiz:[
+    {q:'Ποια διαδικασία αφαιρεί CO₂ από την ατμόσφαιρα;',a:['Η φωτοσύνθεση','Η αναπνοή','Η καύση','Η αποικοδόμηση'],why:'Τα φυτά παίρνουν CO₂ και φτιάχνουν γλυκόζη.'},
+    {q:'Ποια από αυτές επιστρέφει CO₂ στην ατμόσφαιρα;',a:['Η καύση ξύλων','Η φωτοσύνθεση','Η βροχή','Η διαπνοή'],why:'Κάθε καύση οργανικής ύλης ελευθερώνει CO₂.'},
+    {q:'Ποιοι οργανισμοί δεσμεύουν το άζωτο της ατμόσφαιρας;',a:['Ορισμένα βακτήρια','Τα σαρκοφάγα ζώα','Όλα τα φυτά απευθείας','Τα ψάρια'],why:'Μόνο ορισμένα βακτήρια μπορούν να «σπάσουν» το άζωτο του αέρα.'},
+    {q:'Ποια πρόταση είναι σωστή;',a:['Η ενέργεια ρέει, η ύλη ανακυκλώνεται','Η ενέργεια ανακυκλώνεται, η ύλη ρέει','Και τα δύο ανακυκλώνονται','Και τα δύο χάνονται'],why:'Η ενέργεια χάνεται ως θερμότητα, ενώ τα άτομα της ύλης ξαναχρησιμοποιούνται.'},
+    {q:'Από πού προέρχονται τα ορυκτά καύσιμα;',a:['Από οργανισμούς που έζησαν πριν από εκατομμύρια χρόνια','Από ηφαίστεια','Από τη θάλασσα','Από τον Ήλιο απευθείας'],why:'Νεκροί οργανισμοί θάφτηκαν και μετατράπηκαν σιγά σιγά σε πετρέλαιο και άνθρακα.'},
+    {q:'Πώς λέγεται η αποβολή υδρατμών από τα φύλλα;',a:['Διαπνοή','Εξάτμιση','Συμπύκνωση','Φωτοσύνθεση'],why:'Η διαπνοή είναι η συμβολή των φυτών στον κύκλο του νερού.'}
+  ],
+  game:{type:'order',title:'Το ταξίδι ενός ατόμου άνθρακα',hint:'Ακολούθησε τον άνθρακα από τον αέρα πίσω στον αέρα.',items:['CO₂ στην ατμόσφαιρα','Φωτοσύνθεση στο φύλλο','Γλυκόζη μέσα στο φυτό','Ένα ελάφι τρώει το φυτό','Κυτταρική αναπνοή στο ελάφι','Το ελάφι εκπνέει CO₂']}
+},
+{ id:'pollution', n:'2.4', title:'Ο άνθρωπος και το περιβάλλον', sub:'Ρύπανση του αέρα, των υδάτων και του εδάφους', c:'var(--c4)',
+  points:[
+    '<b>Ρύπανση</b> είναι η είσοδος στο περιβάλλον ουσιών ή ενέργειας που βλάπτουν τους οργανισμούς.',
+    '<b>Αέρας:</b> τα καυσαέρια προκαλούν <b>αιθαλομίχλη</b> (νέφος) και <b>όξινη βροχή</b> (οξείδια θείου και αζώτου). Το CO₂ ενισχύει το <b>φαινόμενο του θερμοκηπίου</b> και την κλιματική αλλαγή. Οι CFCs καταστρέφουν τη <b>στιβάδα του όζοντος</b>.',
+    '<b>Νερό:</b> λύματα και λιπάσματα προκαλούν <b>ευτροφισμό</b>: τα φύκια πολλαπλασιάζονται, το οξυγόνο λιγοστεύει και τα ψάρια πεθαίνουν. Επίσης πετρελαιοκηλίδες και πλαστικά.',
+    '<b>Έδαφος:</b> σκουπίδια, φυτοφάρμακα, βαριά μέταλλα. Με τη <b>βιοσυσσώρευση</b>, οι τοξικές ουσίες συγκεντρώνονται όλο και περισσότερο όσο ανεβαίνουμε στην τροφική αλυσίδα.',
+    '<b>Λύσεις:</b> ανακύκλωση, ανανεώσιμες πηγές ενέργειας (ήλιος, άνεμος), μέσα μαζικής μεταφοράς, λογική χρήση λιπασμάτων.'
+  ],
+  fact:'Σύμφωνα με εκτιμήσεις, ένα πλαστικό μπουκάλι χρειάζεται εκατοντάδες χρόνια για να διασπαστεί, ενώ μια φλούδα μπανάνας λίγες εβδομάδες.',
+  cards:[
+    ['Φαινόμενο του θερμοκηπίου','Αέρια όπως το CO₂ κρατούν θερμότητα στην ατμόσφαιρα. Η ενίσχυσή του ζεσταίνει τον πλανήτη.'],
+    ['Όξινη βροχή','Βροχή με οξέα, από οξείδια θείου και αζώτου των καύσεων. Καταστρέφει δάση, λίμνες και μνημεία.'],
+    ['Ευτροφισμός','Υπερβολική ανάπτυξη φυκιών από λιπάσματα και λύματα, που οδηγεί σε έλλειψη οξυγόνου στο νερό.'],
+    ['Βιοσυσσώρευση','Οι τοξικές ουσίες συγκεντρώνονται στους οργανισμούς και αυξάνονται σε κάθε κρίκο της τροφικής αλυσίδας.'],
+    ['Στιβάδα του όζοντος','Στρώμα της ατμόσφαιρας που μας προστατεύει από την υπεριώδη ακτινοβολία του Ήλιου.'],
+    ['Ανανεώσιμες πηγές ενέργειας','Πηγές που δεν εξαντλούνται, π.χ. ηλιακή, αιολική, υδροηλεκτρική.']
+  ],
+  quiz:[
+    {q:'Ποιο αέριο ενισχύει κυρίως το φαινόμενο του θερμοκηπίου;',a:['Το διοξείδιο του άνθρακα','Το οξυγόνο','Το άζωτο','Το ήλιο'],why:'Οι καύσεις αυξάνουν το CO₂, που κρατά θερμότητα στην ατμόσφαιρα.'},
+    {q:'Η όξινη βροχή οφείλεται κυρίως σε…',a:['οξείδια του θείου και του αζώτου','οξυγόνο','υδρατμούς','όζον'],why:'Αυτά τα αέρια ενώνονται με το νερό των σύννεφων και σχηματίζουν οξέα.'},
+    {q:'Τι προκαλεί ο ευτροφισμός σε μια λίμνη;',a:['Πολλά φύκια και έλλειψη οξυγόνου','Περισσότερα ψάρια','Καθαρότερο νερό','Πάγωμα του νερού'],why:'Όταν τα φύκια πεθαίνουν, οι αποικοδομητές καταναλώνουν το οξυγόνο του νερού.'},
+    {q:'Από τι μας προστατεύει η στιβάδα του όζοντος;',a:['Από την υπεριώδη ακτινοβολία','Από τη βροχή','Από τους μετεωρίτες','Από το κρύο'],why:'Η υπεριώδης ακτινοβολία μπορεί να προκαλέσει εγκαύματα και καρκίνο του δέρματος.'},
+    {q:'Αλυσίδα: φύκια → μικρά ψάρια → μεγάλα ψάρια → γλάρος. Πού θα βρεθεί η μεγαλύτερη συγκέντρωση φυτοφαρμάκου;',a:['Στον γλάρο','Στα φύκια','Στα μικρά ψάρια','Παντού ίδια'],why:'Βιοσυσσώρευση: κάθε κρίκος τρώει πολλούς οργανισμούς του προηγούμενου, οπότε το δηλητήριο μαζεύεται στην κορυφή.'},
+    {q:'Ποια είναι ανανεώσιμη πηγή ενέργειας;',a:['Η αιολική','Το πετρέλαιο','Ο γαιάνθρακας','Το φυσικό αέριο'],why:'Ο άνεμος δεν εξαντλείται και δεν βγάζει CO₂ όταν παράγει ρεύμα.'}
+  ],
+  game:{type:'sort',title:'Τι ρυπαίνει τι;',hint:'Βάλε κάθε πηγή ρύπανσης εκεί που κάνει τη μεγαλύτερη ζημιά.',bins:['Αέρας','Νερό','Έδαφος'],
+    items:[['Καυσαέρια αυτοκινήτων',0],['Πετρελαιοκηλίδα',1],['Ανεξέλεγκτη χωματερή',2],['Λιπάσματα που καταλήγουν σε λίμνη',1],['Καπνός από εργοστάσια',0],['Φυτοφάρμακα στα χωράφια',2],['Αστικά λύματα στη θάλασσα',1],['Μπαταρίες πεταμένες στο χώμα',2],['CFCs από παλιά σπρέι',0]]}
+},
+{ id:'energy', n:'3.1', title:'Άνθρωπος και ενέργεια', sub:'Θερμίδες, κυτταρική αναπνοή, ATP', c:'var(--c5)',
+  points:[
+    'Ο άνθρωπος χρειάζεται ενέργεια για να κινείται, να μεγαλώνει, να κρατά σταθερή τη θερμοκρασία του, ακόμη και όταν κοιμάται.',
+    'Την ενέργεια την παίρνουμε από τις τροφές και τη μετράμε σε <b>θερμίδες (kcal)</b>. Περίπου: 1 g υδατανθράκων ή πρωτεϊνών δίνει <b>4 kcal</b>, 1 g λίπους δίνει <b>9 kcal</b>.',
+    'Η ενέργεια των τροφών προέρχεται τελικά από τον <b>Ήλιο</b>, μέσω της φωτοσύνθεσης των φυτών.',
+    '<b>Κυτταρική αναπνοή</b> (στα μιτοχόνδρια): γλυκόζη + οξυγόνο → διοξείδιο του άνθρακα + νερό + ενέργεια. Η ενέργεια αποθηκεύεται στο <b>ATP</b>, το «νόμισμα» ενέργειας του κυττάρου.',
+    'Χωρίς αρκετό οξυγόνο γίνεται <b>ζύμωση</b>: γαλακτικό οξύ στους κουρασμένους μύες, αλκοόλη και CO₂ στη μαγιά. Αν παίρνουμε περισσότερη ενέργεια από όση ξοδεύουμε, το σώμα την αποθηκεύει ως λίπος.'
+  ],
+  fact:'Ο εγκέφαλος είναι μόλις το 2% του βάρους σου, αλλά σε ηρεμία καταναλώνει περίπου το 20% της ενέργειας του σώματος.',
+  cards:[
+    ['ATP','Μόριο που αποθηκεύει και μεταφέρει ενέργεια μέσα στο κύτταρο. Το «νόμισμα» ενέργειας.'],
+    ['Κυτταρική αναπνοή','Διάσπαση της γλυκόζης με οξυγόνο στα μιτοχόνδρια, για παραγωγή ενέργειας.'],
+    ['Θερμίδα (kcal)','Μονάδα μέτρησης της ενέργειας που μας δίνουν οι τροφές.'],
+    ['Ζύμωση','Παραγωγή ενέργειας χωρίς οξυγόνο. Δίνει λιγότερη ενέργεια από την αναπνοή.'],
+    ['Φωτοσύνθεση','Τα φυτά μετατρέπουν την ηλιακή ενέργεια σε χημική ενέργεια της γλυκόζης.'],
+    ['Βασικός μεταβολισμός','Η ενέργεια που χρειάζεται το σώμα σε πλήρη ηρεμία, για καρδιά, αναπνοή, θερμοκρασία.']
+  ],
+  quiz:[
+    {q:'Πόσες θερμίδες δίνει περίπου 1 γραμμάριο λίπους;',a:['9 kcal','4 kcal','1 kcal','20 kcal'],why:'Τα λίπη δίνουν πάνω από διπλάσια ενέργεια από τους υδατάνθρακες.'},
+    {q:'Πού γίνεται η κυτταρική αναπνοή;',a:['Στα μιτοχόνδρια','Στους χλωροπλάστες','Στον πυρήνα','Στο στομάχι'],why:'Τα μιτοχόνδρια διασπούν τη γλυκόζη και φτιάχνουν ATP.'},
+    {q:'Τι είναι το ATP;',a:['Μόριο που αποθηκεύει και μεταφέρει ενέργεια','Ένα ένζυμο του στομάχου','Ένα είδος λίπους','Μια βιταμίνη'],why:'Το κύτταρο «πληρώνει» με ATP κάθε δουλειά που κάνει.'},
+    {q:'Από πού προέρχεται αρχικά η ενέργεια του ψωμιού που τρως;',a:['Από τον Ήλιο','Από το αλεύρι','Από τον φούρνο','Από το νερό'],why:'Το σιτάρι δέσμευσε ηλιακή ενέργεια με τη φωτοσύνθεση.'},
+    {q:'Ποια είναι τα προϊόντα της κυτταρικής αναπνοής;',a:['Διοξείδιο του άνθρακα, νερό και ενέργεια','Γλυκόζη και οξυγόνο','Άμυλο και νερό','Μόνο οξυγόνο'],why:'Είναι το «αντίστροφο» της φωτοσύνθεσης.'},
+    {q:'Σε ένα γρήγορο σπριντ οι μύες δεν παίρνουν αρκετό οξυγόνο. Τι κάνουν;',a:['Γαλακτική ζύμωση','Φωτοσύνθεση','Σταματούν εντελώς','Αλκοολική ζύμωση'],why:'Παράγεται γαλακτικό οξύ, και γι’ αυτό νιώθεις τους μύες να «καίνε».'},
+    {q:'Ξοδεύουμε ενέργεια όταν κοιμόμαστε;',a:['Ναι, για καρδιά, αναπνοή και θερμοκρασία','Όχι, καθόλου','Μόνο αν ονειρευόμαστε','Μόνο αν κάνει κρύο'],why:'Αυτή είναι η ενέργεια του βασικού μεταβολισμού.'}
+  ],
+  game:{type:'order',title:'Από τον Ήλιο στους μύες σου',hint:'Ακολούθησε την ενέργεια από τον Ήλιο μέχρι την κίνηση.',items:['Ήλιος','Φωτοσύνθεση στο σιτάρι','Άμυλο στους σπόρους','Τρως ψωμί','Πέψη σε γλυκόζη','Το αίμα φέρνει γλυκόζη στα κύτταρα','Τα μιτοχόνδρια φτιάχνουν ATP','Οι μύες σου κινούνται']}
+},
+{ id:'enz', n:'3.2', title:'Ένζυμα και μεταβολισμός', sub:'Αναβολισμός, καταβολισμός, βιολογικοί καταλύτες', c:'var(--c5)',
+  points:[
+    '<b>Μεταβολισμός</b> είναι το σύνολο των χημικών αντιδράσεων ενός οργανισμού.',
+    '<b>Αναβολισμός:</b> σύνθεση μεγάλων μορίων από μικρά (π.χ. φωτοσύνθεση, σύνθεση πρωτεϊνών). Χρειάζεται ενέργεια. <b>Καταβολισμός:</b> διάσπαση μεγάλων μορίων (π.χ. κυτταρική αναπνοή, πέψη). Απελευθερώνει ενέργεια.',
+    'Τα <b>ένζυμα</b> είναι πρωτεΐνες που δρουν ως <b>βιολογικοί καταλύτες</b>: επιταχύνουν τις αντιδράσεις χωρίς να καταναλώνονται, οπότε ξαναχρησιμοποιούνται.',
+    '<b>Εξειδίκευση:</b> κάθε ένζυμο δρα σε ένα συγκεκριμένο <b>υπόστρωμα</b>, που ταιριάζει στο <b>ενεργό κέντρο</b> του σαν κλειδί σε κλειδαριά.',
+    'Η δράση τους εξαρτάται από τη <b>θερμοκρασία</b> (στον άνθρωπο άριστη περίπου 37 °C, ενώ σε υψηλή θερμοκρασία <b>μετουσιώνονται</b>) και το <b>pH</b> (η πεψίνη δρα στο όξινο στομάχι).'
+  ],
+  fact:'Το οξυζενέ αφρίζει πάνω σε μια πληγή επειδή το ένζυμο καταλάση των κυττάρων σου το διασπά σε νερό και οξυγόνο, εκατομμύρια μόρια το δευτερόλεπτο.',
+  cards:[
+    ['Ένζυμο','Πρωτεΐνη που επιταχύνει μια χημική αντίδραση χωρίς να καταναλώνεται.'],
+    ['Υπόστρωμα','Η ουσία πάνω στην οποία δρα ένα ένζυμο.'],
+    ['Ενεργό κέντρο','Το σημείο του ενζύμου όπου «κουμπώνει» το υπόστρωμα.'],
+    ['Μετουσίωση','Αλλαγή του σχήματος του ενζύμου (π.χ. από υψηλή θερμοκρασία), οπότε χάνει τη δράση του.'],
+    ['Αναβολισμός','Αντιδράσεις σύνθεσης μεγάλων μορίων. Χρειάζονται ενέργεια.'],
+    ['Καταβολισμός','Αντιδράσεις διάσπασης μεγάλων μορίων. Απελευθερώνουν ενέργεια.'],
+    ['Εξειδίκευση','Κάθε ένζυμο δρα μόνο σε συγκεκριμένο υπόστρωμα.']
+  ],
+  quiz:[
+    {q:'Τα ένζυμα είναι κυρίως…',a:['πρωτεΐνες','υδατάνθρακες','λιπίδια','άλατα'],why:'Το σχήμα της πρωτεΐνης καθορίζει ποιο υπόστρωμα ταιριάζει.'},
+    {q:'Τι παθαίνει το ένζυμο μετά την αντίδραση;',a:['Μένει αμετάβλητο και ξαναχρησιμοποιείται','Καταστρέφεται','Γίνεται προϊόν','Μετατρέπεται σε λίπος'],why:'Γι’ αυτό λίγα μόρια ενζύμου αρκούν για πάρα πολλές αντιδράσεις.'},
+    {q:'Η διάσπαση της γλυκόζης στην κυτταρική αναπνοή είναι…',a:['καταβολισμός','αναβολισμός','φωτοσύνθεση','εξειδίκευση'],why:'Μεγάλο μόριο διασπάται και απελευθερώνεται ενέργεια.'},
+    {q:'Τι συμβαίνει σε ένα ανθρώπινο ένζυμο στους 70 °C;',a:['Μετουσιώνεται και χάνει τη δράση του','Δουλεύει πιο γρήγορα από ποτέ','Γίνεται υδατάνθρακας','Τίποτα'],why:'Η υψηλή θερμοκρασία αλλάζει το σχήμα του, όπως όταν ψήνεται το ασπράδι του αυγού.'},
+    {q:'Γιατί η αμυλάση διασπά άμυλο αλλά όχι πρωτεΐνες;',a:['Λόγω εξειδίκευσης','Επειδή είναι λίπος','Επειδή είναι μικρή','Επειδή δεν υπάρχει νερό'],why:'Μόνο το άμυλο ταιριάζει στο ενεργό κέντρο της, όπως ένα κλειδί σε μία κλειδαριά.'},
+    {q:'Η πεψίνη του στομάχου δρα καλύτερα σε…',a:['όξινο περιβάλλον','βασικό περιβάλλον','πολύ υψηλή θερμοκρασία','απουσία νερού'],why:'Το στομάχι έχει υδροχλωρικό οξύ, άρα πολύ χαμηλό pH.'}
+  ],
+  game:{type:'sort',title:'Χτίζω ή διασπώ;',hint:'Είναι αναβολισμός (σύνθεση) ή καταβολισμός (διάσπαση);',bins:['Αναβολισμός','Καταβολισμός'],
+    items:[['Φωτοσύνθεση',0],['Κυτταρική αναπνοή',1],['Σύνθεση πρωτεΐνης από αμινοξέα',0],['Πέψη του αμύλου σε γλυκόζη',1],['Σχηματισμός γλυκογόνου στο ήπαρ',0],['Διάσπαση λίπους για ενέργεια',1],['Ζύμωση της μαγιάς',1],['Σύνθεση DNA πριν από τη διαίρεση',0]]}
+}];
+
+
+/* football layer: each unit is a match against a themed opponent, plus a "Στο γήπεδο" link to football */
+const FOOT = {
+  sci:{opp:'Υποθέσεις FC',pitch:'Οι επιστήμονες του αθλητισμού κάνουν πειράματα με ποδοσφαιριστές: μια ομάδα κάνει νέο πρόγραμμα προπόνησης και μια ομάδα ελέγχου το παλιό. Μετά συγκρίνουν ποιοι έγιναν πιο γρήγοροι. Αυτή είναι η επιστημονική μέθοδος!'},
+  mol:{opp:'Αμινοξέα United',pitch:'Πριν από τον αγώνα οι παίκτες τρώνε ζυμαρικά (υδατάνθρακες) για να γεμίσουν τις αποθήκες γλυκογόνου στους μύες. Μετά τρώνε πρωτεΐνες για να επανέλθουν οι μύες. Στο ημίχρονο πίνουν ισοτονικά για να πάρουν πίσω το νερό και τα άλατα που έχασαν με τον ιδρώτα.'},
+  cell:{opp:'Μιτοχόνδρια ΑΕ',pitch:'Με την προπόνηση αντοχής, τα μυϊκά κύτταρα των ποδιών αποκτούν περισσότερα μιτοχόνδρια. Έτσι παράγουν περισσότερη ενέργεια και ο παίκτης αντέχει να τρέχει μέχρι το 90΄.'},
+  levels:{opp:'Ιστοί Αθλητικός',pitch:'Ένα σουτ χρειάζεται όλους τους ιστούς: ο νευρικός στέλνει την εντολή, ο σκελετικός μυϊκός συστέλλεται, οι τένοντες (συνδετικός ιστός) τραβούν τα οστά και το δέρμα (επιθηλιακός) ακουμπά την μπάλα. Σαν ομάδα: κάθε ιστός έχει τη θέση του.'},
+  eco:{opp:'Τροφική Αλυσίδα FC',pitch:'Ο χλοοτάπητας του γηπέδου είναι παραγωγός: κάνει φωτοσύνθεση. Σε μεγάλα γήπεδα με πολλή σκιά από τις κερκίδες, το γρασίδι δεν παίρνει αρκετό φως και χρησιμοποιούν ειδικές λάμπες για να μεγαλώνει.'},
+  cycle:{opp:'Ατρόμητος Άνθρακας',pitch:'Σε έναν ζεστό αγώνα ένας παίκτης μπορεί να χάσει πάνω από 2 λίτρα νερό με τον ιδρώτα. Αυτό το νερό εξατμίζεται και μπαίνει στον κύκλο του νερού, ενώ το CO₂ που εκπνέει μπαίνει στον κύκλο του άνθρακα.'},
+  pollution:{opp:'Νέφος City',pitch:'Όταν τρέχεις αναπνέεις πολύ περισσότερο αέρα από όταν κάθεσαι. Γι’ αυτό, σε μέρες με πολύ νέφος, οι αθλητές εισπνέουν πολύ περισσότερους ρύπους και η απόδοσή τους πέφτει.'},
+  energy:{opp:'ATP Ρέιντζερς',pitch:'Ένας επαγγελματίας ποδοσφαιριστής τρέχει περίπου 10–12 χιλιόμετρα σε έναν αγώνα και ξοδεύει πάνω από 1.000 θερμίδες. Στα σπριντ οι μύες του δεν παίρνουν αρκετό οξυγόνο και κάνουν γαλακτική ζύμωση.'},
+  enz:{opp:'Ένζυμα Δυναμό',pitch:'Γιατί κάνουμε ζέσταμα; Όταν οι μύες ζεσταθούν, τα ένζυμά τους δουλεύουν πιο γρήγορα, οπότε οι μύες παράγουν ενέργεια πιο εύκολα και τραυματίζονται πιο δύσκολα.'}
+};
+const RESULT=(a,b)=>a>b?{pts:3,txt:'Νίκη'}:a===b?{pts:1,txt:'Ισοπαλία'}:{pts:0,txt:'Ήττα'};
+
+const CELL = {
+  wall:['Κυτταρικό τοίχωμα','Σκληρό περίβλημα από κυτταρίνη. Υπάρχει μόνο στα φυτικά κύτταρα (και στους μύκητες, με άλλη ουσία). Δίνει στήριξη.'],
+  membrane:['Κυτταρική μεμβράνη','Λεπτό περίβλημα όλων των κυττάρων. Αποφασίζει τι μπαίνει και τι βγαίνει.'],
+  cyto:['Κυτταρόπλασμα','Ζελατινώδες υγρό που γεμίζει το κύτταρο. Μέσα του «κολυμπούν» τα οργανίδια.'],
+  nucleus:['Πυρήνας','Περιέχει το DNA και ελέγχει όλες τις λειτουργίες. Μέσα του φαίνεται ο πυρηνίσκος.'],
+  chloro:['Χλωροπλάστης','Πράσινο οργανίδιο με χλωροφύλλη. Εδώ γίνεται η φωτοσύνθεση. Μόνο στα φυτικά κύτταρα.'],
+  mito:['Μιτοχόνδριο','Το εργοστάσιο ενέργειας: εδώ γίνεται η κυτταρική αναπνοή. Υπάρχει σε φυτικά και ζωικά κύτταρα.'],
+  vac:['Χυμοτόπιο','Σάκος με νερό και ουσίες. Στα φυτικά κύτταρα είναι πολύ μεγάλο και κρατά το κύτταρο «φουσκωμένο».']
+};
+const PLANT_PARTS=['wall','membrane','cyto','nucleus','chloro','mito','vac'];
+const ANIMAL_PARTS=['membrane','cyto','nucleus','mito','vac'];
+const SVG_PLANT=`<svg viewBox="0 0 320 220" role="img" aria-label="Φυτικό κύτταρο">
+<rect data-p="wall" x="6" y="6" width="308" height="208" rx="16" fill="var(--wall)"/>
+<rect data-p="cyto" x="16" y="16" width="288" height="188" rx="10" fill="var(--cyto)"/>
+<rect data-p="membrane" class="line" x="16" y="16" width="288" height="188" rx="10" fill="none" stroke="var(--cell-line)" stroke-width="4"/>
+<ellipse data-p="vac" cx="180" cy="112" rx="72" ry="54" fill="var(--vac)" stroke="var(--cell-line)" stroke-opacity=".35"/>
+<circle data-p="nucleus" cx="68" cy="66" r="30" fill="var(--nuc)" stroke="var(--cell-line)" stroke-opacity=".4"/>
+<circle data-p="nucleus" cx="74" cy="62" r="10" fill="var(--nucl)"/>
+<g fill="var(--chl)"><ellipse data-p="chloro" cx="58" cy="168" rx="18" ry="10" transform="rotate(-15 58 168)"/><ellipse data-p="chloro" cx="270" cy="44" rx="18" ry="10" transform="rotate(20 270 44)"/><ellipse data-p="chloro" cx="276" cy="176" rx="17" ry="9"/><ellipse data-p="chloro" cx="150" cy="188" rx="17" ry="9" transform="rotate(8 150 188)"/><ellipse data-p="chloro" cx="140" cy="36" rx="16" ry="9"/></g>
+<g fill="var(--mito)"><ellipse data-p="mito" cx="282" cy="110" rx="16" ry="8" transform="rotate(80 282 110)"/><ellipse data-p="mito" cx="40" cy="122" rx="15" ry="8" transform="rotate(-30 40 122)"/><ellipse data-p="mito" cx="214" cy="190" rx="14" ry="7"/></g>
+</svg>`;
+const SVG_ANIMAL=`<svg viewBox="0 0 320 220" role="img" aria-label="Ζωικό κύτταρο">
+<path data-p="cyto" d="M40 70 C60 20 150 8 220 22 C290 36 316 90 300 140 C284 196 200 214 130 206 C56 198 14 150 22 110 C26 92 32 82 40 70Z" fill="var(--cyto)"/>
+<path data-p="membrane" class="line" d="M40 70 C60 20 150 8 220 22 C290 36 316 90 300 140 C284 196 200 214 130 206 C56 198 14 150 22 110 C26 92 32 82 40 70Z" fill="none" stroke="var(--cell-line)" stroke-width="4"/>
+<circle data-p="nucleus" cx="160" cy="108" r="34" fill="var(--nuc)" stroke="var(--cell-line)" stroke-opacity=".4"/>
+<circle data-p="nucleus" cx="168" cy="102" r="11" fill="var(--nucl)"/>
+<g fill="var(--mito)"><ellipse data-p="mito" cx="76" cy="92" rx="18" ry="9" transform="rotate(-25 76 92)"/><ellipse data-p="mito" cx="240" cy="150" rx="18" ry="9" transform="rotate(20 240 150)"/><ellipse data-p="mito" cx="246" cy="70" rx="16" ry="8" transform="rotate(60 246 70)"/><ellipse data-p="mito" cx="130" cy="176" rx="15" ry="8"/></g>
+<g fill="var(--vac)" stroke="var(--cell-line)" stroke-opacity=".35"><circle data-p="vac" cx="88" cy="150" r="10"/><circle data-p="vac" cx="214" cy="46" r="7"/></g>
+</svg>`;
+
+const RANKS=[[0,'Ακαδημίες'],[80,'Αναπληρωματικός'],[200,'Βασικός'],[380,'Αρχηγός'],[600,'Διεθνής'],[900,'Χρυσή Μπάλα']];
+const KEY='bio-b-gym-v2';
+let S={xp:0,best:{},game:{},match:{},rapid:0};
+try{const r=localStorage.getItem(KEY); if(r) S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const view=$('#view');
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function rankOf(xp){let r=RANKS[0],next=null;for(let i=0;i<RANKS.length;i++){if(xp>=RANKS[i][0]){r=RANKS[i];next=RANKS[i+1]||null}}return{r,next}}
+function renderTop(){
+  const {r}=rankOf(S.xp);
+  $('#meter').innerHTML=`<span class="rank">${r[1]}</span><span class="xp">${S.xp} XP</span>`;
+}
+function addXP(n){
+  S.xp+=n;save();renderTop();
+  if(!reduce){const f=document.createElement('span');f.className='float';f.textContent='+'+n;$('#meter').appendChild(f);setTimeout(()=>f.remove(),1000)}
+}
+function starsHTML(n){return `<span class="stars" aria-label="${n} από 3 αστέρια">${[0,1,2].map(i=>i<n?'★':'<span class="off">★</span>').join('')}</span>`}
+function starsFor(score,total){const p=score/total;return p===1?3:p>=.8?2:p>=.5?1:0}
+function confetti(){
+  if(reduce)return;
+  const cols=['--c1','--c2','--c3','--c4','--c5','--c6'];
+  for(let i=0;i<36;i++){const d=document.createElement('i');d.className='confetti';d.style.left=Math.random()*100+'vw';
+    d.style.background=`var(${cols[i%6]})`;d.style.animationDuration=(1.6+Math.random()*1.4)+'s';d.style.animationDelay=Math.random()*.4+'s';
+    document.body.appendChild(d);setTimeout(()=>d.remove(),3600)}
+}
+
+/* ---------- home ---------- */
+function home(){
+  const {r,next}=rankOf(S.xp);
+  const pct=next?Math.round((S.xp-r[0])/(next[0]-r[0])*100):100;
+  const played=CH.filter(c=>S.match[c.id]);
+  const w=played.filter(c=>S.match[c.id].pts===3).length,d=played.filter(c=>S.match[c.id].pts===1).length;
+  const leaguePts=played.reduce((a,c)=>a+S.match[c.id].pts,0);
+  view.innerHTML=`
+  <section class="hero">
+    <div><h1>Η σεζόν της Βιολογίας</h1>
+    <p>Κάθε ενότητα του βιβλίου είναι ένας αγώνας. Διάβασε τη θεωρία (προπόνηση), γύρνα τις κάρτες (τακτική) και μπες στο γήπεδο: κάθε σωστή απάντηση είναι γκολ, κάθε λάθος γκολ του αντιπάλου. Από τις ακαδημίες μέχρι τη Χρυσή Μπάλα.</p></div>
+    <div class="progress-card"><small>Η ΚΑΡΙΕΡΑ ΣΟΥ</small><b>${r[1]}</b>
+      <div class="bar"><i style="width:${pct}%"></i></div>
+      <div class="next">${next?`${next[0]-S.xp} XP για «${next[1]}»`:'Είσαι ο καλύτερος της σεζόν!'}</div></div>
+  </section>
+  <section class="league">
+    <div><small>ΒΑΘΜΟΙ</small><b>${leaguePts}<span>/${CH.length*3}</span></b></div>
+    <div><small>ΑΓΩΝΕΣ</small><b>${played.length}<span>/${CH.length}</span></b></div>
+    <div><small>Ν–Ι–Η</small><b>${w}–${d}–${played.length-w-d}</b></div>
+    <div><small>ΡΕΚΟΡ ΠΕΝΑΛΤΙ</small><b>${S.rapid}</b></div>
+  </section>
+  <section class="rapid-cta"><div><h2>Διαδικασία πέναλτι · 60 δευτερόλεπτα</h2><p>Ερωτήσεις από όλες τις ενότητες. Κάθε σωστή απάντηση είναι ένα πέναλτι στα δίχτυα.</p></div>
+    <button class="btn" id="go-rapid">Στην άσπρη βούλα</button></section>
+  ${GROUPS.map(g=>`<h2 class="group-title" style="--c:${g.c}">${g.name}</h2>
+  <div class="slides">${g.units.map(id=>CH.find(c=>c.id===id)).map(ch=>`
+    <button class="slide" data-ch="${ch.id}" style="--c:${ch.c}">
+      <span class="label"><span>${ch.id==='sci'?'ΕΙΣΑΓ.':'ΕΝΟΤ.'}</span><b>${ch.id==='sci'?'0':ch.n}</b></span>
+      <span class="body"><h3>${ch.title}</h3><p>${ch.sub}</p>
+        <span class="vs">vs ${FOOT[ch.id].opp}</span>
+        <span class="meta">${S.match[ch.id]?`<span class="res r${S.match[ch.id].pts}">${S.match[ch.id].txt} ${S.match[ch.id].score}</span>`:'<span>Δεν έχει παιχτεί</span>'}${S.game[ch.id]?'<span>· παιχνίδι ✓</span>':''}</span></span>
+    </button>`).join('')}</div>`).join('')}`;
+  view.querySelectorAll('.slide').forEach(b=>b.onclick=()=>chapter(b.dataset.ch,'theory'));
+  $('#go-rapid').onclick=rapid;
+}
+
+/* ---------- chapter ---------- */
+const TABS=[['theory','Θεωρία'],['cards','Κάρτες'],['quiz','Quiz'],['game','Παιχνίδι']];
+const unitLabel=ch=>ch.id==='sci'?'ΕΙΣΑΓΩΓΗ':'ΕΝΟΤΗΤΑ '+ch.n;
+let lastTab={id:null,i:0};
+function chapter(id,tab){
+  const ch=CH.find(c=>c.id===id);
+  const ti=TABS.findIndex(t=>t[0]===tab),from=lastTab.id===id?lastTab.i:ti;
+  lastTab={id,i:ti};
+  view.innerHTML=`<button class="back" id="back">← Όλες οι ενότητες</button>
+  <div class="ch-head" style="--c:${ch.c}"><small>${unitLabel(ch)}</small><h1>${ch.title}</h1></div>
+  <div class="tabs" role="tablist" style="--i:${from}"><i aria-hidden="true"></i>${TABS.map(([k,l])=>`<button role="tab" data-t="${k}" aria-selected="${k===tab}">${l}</button>`).join('')}</div>
+  <div id="tab" style="--c:${ch.c}"></div>`;
+  const tabs=$('.tabs');void tabs.offsetWidth;tabs.style.setProperty('--i',ti);
+  $('#back').onclick=home;
+  view.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>chapter(id,b.dataset.t));
+  ({theory,cards,quiz,game:ch=>ch.game.type==='sort'?sortGame(ch):order(ch)})[tab](ch);
+  window.scrollTo({top:0});
+}
+
+function theory(ch){
+  const box=$('#tab');
+  box.innerHTML=(ch.id==='cell'?`<h2 class="section-title">Δες ένα κύτταρο στο μικροσκόπιο</h2><div class="cell" id="cellx"></div>`:'')+
+  `<h2 class="section-title">Τα βασικά</h2><ul class="points">${ch.points.map(p=>`<li>${p}</li>`).join('')}</ul>
+  <div class="pitch"><small>ΣΤΟ ΓΗΠΕΔΟ</small><p>${FOOT[ch.id].pitch}</p></div>
+  <div class="fact"><small>ΗΞΕΡΕΣ ΟΤΙ;</small><p>${ch.fact}</p></div>
+  <div class="row" style="justify-content:flex-start;margin-top:18px"><button class="btn" id="to-quiz">Είμαι έτοιμος/η για το quiz</button><button class="btn ghost" id="to-cards">Κάρτες πρώτα</button></div>`;
+  $('#to-quiz').onclick=()=>chapter(ch.id,'quiz');
+  $('#to-cards').onclick=()=>chapter(ch.id,'cards');
+  if(ch.id==='cell')cellExplorer('plant','nucleus');
+}
+
+function cellExplorer(kind,sel){
+  const parts=kind==='plant'?PLANT_PARTS:ANIMAL_PARTS;
+  if(!parts.includes(sel))sel='nucleus';
+  const el=$('#cellx');
+  el.innerHTML=`<div><div class="tog"><button data-k="plant" aria-pressed="${kind==='plant'}">Φυτικό</button><button data-k="animal" aria-pressed="${kind==='animal'}">Ζωικό</button></div>
+    ${kind==='plant'?SVG_PLANT:SVG_ANIMAL}<div class="mag">ΜΕΓΕΘΥΝΣΗ ×400 · πάτα ένα οργανίδιο</div></div>
+    <div><div class="chips">${parts.map(p=>`<button data-sel="${p}" class="${p===sel?'on':''}">${CELL[p][0]}</button>`).join('')}</div>
+    <div class="info" aria-live="polite"><h3>${CELL[sel][0]}</h3><p>${CELL[sel][1]}</p></div></div>`;
+  el.querySelectorAll('[data-p]').forEach(n=>{if(n.dataset.p===sel)n.classList.add('on');n.addEventListener('click',()=>cellExplorer(kind,n.dataset.p))});
+  el.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>cellExplorer(kind,b.dataset.sel));
+  el.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>cellExplorer(b.dataset.k,sel));
+}
+
+function cards(ch){
+  const box=$('#tab');let deck=[...ch.cards],k=0;
+  function show(){
+    const [t,d]=deck[k];
+    box.innerHTML=`<p class="hint" style="text-align:center">Πάτα την κάρτα για να δεις τον ορισμό.</p>
+    <div class="fc-wrap"><button class="fc" id="fc" aria-label="Γύρισε την κάρτα">
+      <span class="face front"><small>ΟΡΟΣ</small><b>${t}</b></span>
+      <span class="face back"><small>ΟΡΙΣΜΟΣ</small><span>${d}</span></span></button></div>
+    <div class="fc-nav"><button class="btn ghost" id="prev">← Πίσω</button><span>${k+1} / ${deck.length}</span><button class="btn ghost" id="mix">Ανακάτεμα</button><button class="btn" id="next">Επόμενη →</button></div>`;
+    $('#fc').onclick=()=>$('#fc').classList.toggle('flip');
+    $('#prev').onclick=()=>{k=(k-1+deck.length)%deck.length;show()};
+    $('#next').onclick=()=>{k=(k+1)%deck.length;show()};
+    $('#mix').onclick=()=>{deck=shuffle(deck);k=0;show()};
+  }
+  show();
+}
+
+function quiz(ch){
+  const box=$('#tab');
+  const qs=shuffle(ch.quiz).map(q=>({...q,opts:shuffle(q.a.map((t,i)=>({t,ok:i===0})))}));
+  let i=0,score=0,opp=0,combo=0,gained=0;
+  const team=FOOT[ch.id].opp;
+  function show(){
+    const q=qs[i];
+    box.innerHTML=`<div class="board"><span>ΕΣΥ</span><b id="sb">${score} – ${opp}</b><span>${team}</span><em>${Math.round(i/qs.length*90)}΄</em></div>
+    <div class="qhead"><span>Φάση ${i+1} / ${qs.length}</span><span class="combo">${combo>=2?'Χατ τρικ σε εξέλιξη ×'+combo:''}</span></div>
+    <div class="bar"><i style="width:${i/qs.length*100}%;background:${ch.c}"></i></div>
+    <h3 class="q">${q.q}</h3><div class="opts">${q.opts.map((o,k)=>`<button class="opt" data-k="${k}">${o.t}</button>`).join('')}</div><div id="fb"></div>`;
+    box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+  }
+  function pick(k){
+    const q=qs[i],btns=box.querySelectorAll('.opt'),ok=q.opts[k].ok;
+    btns.forEach((b,j)=>{b.disabled=true;if(q.opts[j].ok)b.classList.add('ok')});
+    if(ok){score++;combo++;const pts=combo>=3?15:10;gained+=pts;addXP(pts)}else{opp++;combo=0;btns[k].classList.add('bad')}
+    const sb=$('#sb');sb.textContent=`${score} – ${opp}`;sb.classList.add('goal');
+    $('#fb').innerHTML=`<div class="fb"><p>${ok?'<b class="good">ΓΚΟΛ!</b> ':'<b class="bad">Σκόραρε ο αντίπαλος.</b> '}${q.why}</p><button class="btn" id="nx">${i<qs.length-1?'Επόμενη φάση':'Τελικό σφύριγμα'}</button></div>`;
+    $('#nx').onclick=()=>{i++;i<qs.length?show():end()};
+    $('#nx').focus();
+  }
+  function end(){
+    const st=starsFor(score,qs.length),prev=S.best[ch.id]||0;
+    if(st>prev)S.best[ch.id]=st;
+    const res=RESULT(score,opp),old=S.match[ch.id];
+    if(!old||res.pts>old.pts||(res.pts===old.pts&&score-opp>old.diff))S.match[ch.id]={pts:res.pts,txt:res.txt,score:`${score}–${opp}`,diff:score-opp};
+    save();
+    if(res.pts===3)confetti();
+    const msg=opp===0?'Καθαρή εστία! Τέλεια εμφάνιση, είσαι έτοιμος για διαγώνισμα.':res.pts===3?'Νίκη και 3 βαθμοί! Ξαναπαίξε το για ακόμα καλύτερο σκορ.':res.pts===1?'Ισοπαλία. Μια ματιά στις κάρτες και η νίκη είναι δική σου.':'Ήττα αυτή τη φορά. Κάνε προπόνηση στη θεωρία και ζήτα ρεβάνς!';
+    box.innerHTML=`<div class="result"><p>Τελικό σφύριγμα</p><div class="big">${score} – ${opp}</div><p><b>${res.txt}</b> απέναντι στην ${team} · ${res.pts} ${res.pts===1?'βαθμός':'βαθμοί'}</p>${starsHTML(st)}<p>${msg}<br>Κέρδισες ${gained} XP.</p>
+      <div class="row"><button class="btn" id="again">Ρεβάνς</button><button class="btn ghost" id="toorder">Παιχνίδι</button><button class="btn ghost" id="tohome">Ενότητες</button></div></div>`;
+    $('#again').onclick=()=>quiz(ch);$('#toorder').onclick=()=>chapter(ch.id,'game');$('#tohome').onclick=home;
+  }
+  show();
+}
+
+function gameDone(ch,mistakes,body){
+  const pts=Math.max(5,30-mistakes*5);addXP(pts);
+  if(!S.game[ch.id]){S.game[ch.id]=true;save()}
+  if(mistakes===0)confetti();
+  $('#tab').innerHTML=`<h2 class="section-title" style="margin-top:0">${ch.game.title}</h2>${body}
+  <div class="result"><div class="big">${mistakes===0?'Χωρίς λάθος!':mistakes+(mistakes===1?' λάθος':' λάθη')}</div><p>Κέρδισες ${pts} XP.</p>
+  <div class="row"><button class="btn" id="again">Ξανά</button><button class="btn ghost" id="tohome">Ενότητες</button></div></div>`;
+  $('#again').onclick=()=>chapter(ch.id,'game');$('#tohome').onclick=home;
+}
+
+function sortGame(ch){
+  const box=$('#tab'),g=ch.game,deck=shuffle(g.items),placed=g.bins.map(()=>[]);
+  let k=0,mistakes=0;
+  const binsHTML=()=>`<div class="bins">${g.bins.map((b,i)=>`<button class="bin" data-b="${i}"><b>${b}</b><ul>${placed[i].map(t=>`<li>${t}</li>`).join('')}</ul></button>`).join('')}</div>`;
+  function show(){
+    box.innerHTML=`<h2 class="section-title" style="margin-top:0">${g.title}</h2><p class="hint">${g.hint} Λάθη: <b>${mistakes}</b></p>
+    <div class="sort-item"><small>${k+1} από ${deck.length}</small>${deck[k][0]}</div>${binsHTML()}`;
+    box.querySelectorAll('.bin').forEach(b=>b.onclick=()=>tap(b,+b.dataset.b));
+  }
+  function tap(b,i){
+    if(deck[k][1]===i){placed[i].push(deck[k][0]);k++;k===deck.length?gameDone(ch,mistakes,binsHTML().replace(/<button/g,'<div').replace(/<\/button>/g,'</div>')):show()}
+    else{mistakes++;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');box.querySelector('.hint b').textContent=mistakes}
+  }
+  show();
+}
+
+function order(ch){
+  const box=$('#tab'),items=ch.game.items;
+  let pool=shuffle(items.map((t,i)=>({t,i}))),next=0,mistakes=0;
+  function show(){
+    box.innerHTML=`<h2 class="section-title" style="margin-top:0">${ch.game.title}</h2><p class="hint">${ch.game.hint} Λάθη: <b>${mistakes}</b></p>
+    <ol class="chain">${items.slice(0,next).map(t=>`<li>${t}</li>`).join('')}${next<items.length?'<li class="ghost">;</li>':''}</ol>
+    <div class="pool">${pool.map(p=>`<button data-i="${p.i}">${p.t}</button>`).join('')}</div>`;
+    box.querySelectorAll('.pool button').forEach(b=>b.onclick=()=>tap(b,+b.dataset.i));
+  }
+  function tap(b,i){
+    if(i===next){next++;pool=pool.filter(p=>p.i!==i);next===items.length?gameDone(ch,mistakes,`<ol class="chain">${items.map(t=>`<li>${t}</li>`).join('')}</ol>`):show()}
+    else{mistakes++;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');box.querySelector('.hint b').textContent=mistakes}
+  }
+  show();
+}
+
+/* ---------- rapid round ---------- */
+let rapidTimer=null;
+function rapid(){
+  clearInterval(rapidTimer);
+  const all=shuffle(CH.flatMap(ch=>ch.quiz.map(q=>({...q,ch}))));
+  let i=0,score=0,left=60,locked=false;
+  view.innerHTML=`<button class="back" id="back">← Έξοδος</button>
+  <div class="qhead" style="align-items:center"><span class="timer" id="t">60</span><span>Γκολ: <b id="sc">0</b> · Ρεκόρ: ${S.rapid}</span></div>
+  <div class="bar"><i id="tb" style="width:100%"></i></div><div id="rq"></div>`;
+  $('#back').onclick=()=>{clearInterval(rapidTimer);home()};
+  function show(){
+    const q=all[i%all.length],opts=shuffle(q.a.map((t,k)=>({t,ok:k===0})));locked=false;
+    $('#rq').innerHTML=`<div style="--c:${q.ch.c};margin-top:16px"><span class="tag">${unitLabel(q.ch)}</span><h3 class="q">${q.q}</h3>
+      <div class="opts">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${o.t}</button>`).join('')}</div></div>`;
+    $('#rq').querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      if(locked)return;locked=true;const o=opts[+b.dataset.k];
+      $('#rq').querySelectorAll('.opt').forEach((x,j)=>{x.disabled=true;if(opts[j].ok)x.classList.add('ok')});
+      if(o.ok){score++;$('#sc').textContent=score}else b.classList.add('bad');
+      setTimeout(()=>{if(left>0){i++;show()}},o.ok?450:1100);
+    });
+  }
+  rapidTimer=setInterval(()=>{left--;const t=$('#t');if(!t){clearInterval(rapidTimer);return}
+    t.textContent=left;t.classList.toggle('low',left<=10);$('#tb').style.width=(left/60*100)+'%';
+    if(left<=0){clearInterval(rapidTimer);end()}},1000);
+  function end(){
+    const rec=score>S.rapid;if(rec){S.rapid=score;save();confetti()}
+    if(score)addXP(score*5);
+    view.innerHTML=`<div class="result"><p>Τέλος η διαδικασία πέναλτι!</p><div class="big">${score} γκολ</div>
+      <p>${rec?'Νέο ρεκόρ!':'Ρεκόρ σου: '+S.rapid}<br>Κέρδισες ${score*5} XP.</p>
+      <div class="row"><button class="btn" id="again">Ξανά</button><button class="btn ghost" id="tohome">Κεφάλαια</button></div></div>`;
+    $('#again').onclick=rapid;$('#tohome').onclick=home;
+  }
+  show();
+}
+
+document.documentElement.lang='el';
+$('#home').onclick=()=>{clearInterval(rapidTimer);home()};
+renderTop();home();
+</script>
+</body>
+</html>
